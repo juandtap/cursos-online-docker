@@ -273,28 +273,45 @@
                             </systemPropertyVariables>
                         </configuration>
                     </plugin>
-                  <plugin>
-				           <groupId>com.spotify</groupId>
-				           <artifactId>dockerfile-maven-plugin</artifactId>
-				           <version>1.3.6</version>
-				           <configuration>
-				          
-				           <useMavenSettingsForAuth>true</useMavenSettingsForAuth>	
-				               <repository>${company}/cursos-online-docker</repository>
-				           <buildArgs>
-				   				<WAR_FILE>target/cursos-online-docker.war</WAR_FILE>
-				   			</buildArgs>
-				           </configuration>
-				   <executions>
-				   <execution>
-				   	<id>default</id>
-				   	<phase>install</phase>
-				   	<goals>
-				   		<goal>build</goal>
-				   	</goals>
-				   </execution>
-				   </executions>
-				       </plugin> 
+                	<plugin>
+					<groupId>io.fabric8</groupId>
+					<artifactId>docker-maven-plugin</artifactId>
+					<version>0.33.0</version>
+					<configuration>
+						<images>
+							<image>
+								<name>${company}/${project.artifactId}</name>
+								<alias>${project.artifactId}</alias>
+								<build>
+									<tags>
+										<tag>latest</tag>
+									</tags>
+									<contextDir>${project.basedir}/src/main/docker</contextDir>
+									<assembly>
+										<mode>dir</mode>
+										<name>maven/</name>
+										<inline>
+											<files>
+												<file>
+													<source>
+														${project.build.directory}/cursos-online-docker.war
+													</source>
+													<outputDirectory>.</outputDirectory>
+												</file>
+											</files>
+										</inline>
+									</assembly>
+								</build>
+								<run>
+									<ports>
+										<port>8080:8080</port>
+										<port>9090:9090</port>
+									</ports>
+								</run>
+							</image>
+						</images>
+					</configuration>
+				</plugin>
                 </plugins>
             </build>
         </profile>
