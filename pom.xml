@@ -50,6 +50,7 @@
 
         <!-- maven-compiler-plugin -->
         <maven.compiler.release>11</maven.compiler.release>
+        <company>ups</company>
     </properties>
 
     <!-- the JBoss community and Red Hat GA Maven repositories -->
@@ -68,6 +69,11 @@
             <url>https://repository.jboss.org/nexus/content/groups/public/</url>
             <layout>default</layout>
         </repository>
+        <repository>
+			<id>repository.jboss.org-public</id>
+			<name>JBoss.org Maven repository</name>
+			<url>https://repository.jboss.org/nexus/content/groups/public</url>
+		</repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
@@ -299,7 +305,7 @@
 								<run>
 									<ports>
 										<port>8080:8080</port>
-										<port>9990:9990</port>
+										<port>9090:9090</port>
 									</ports>
 								</run>
 							</image>
