@@ -11,7 +11,7 @@ services:
       POSTGRES_PASSWORD: QueryConSql.pwd
       TZ:  America/Guayaquil
     ports:
-      - 5432:5432
+      - 5434:5432
     networks:
       - datalogger_net
     volumes:
