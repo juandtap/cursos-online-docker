@@ -47,6 +47,14 @@ services:
       - srvdb
     networks:
       - datalogger_net
+      
+  angular_frontend:
+    image: juandtap/angular-front
+    container_name: angular_frontend
+    ports:
+      - 4200:4200
+    networks:
+      - datalogger_net
 
 volumes:
   pg_data2:
