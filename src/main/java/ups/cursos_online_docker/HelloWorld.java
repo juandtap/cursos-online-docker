@@ -12,4 +12,11 @@ public class HelloWorld {
 	public String getHelloWorld() {
 		return "Hola mundo";
 	}
+	
+	@GET
+	@Path("night")
+	@Produces("application/json")
+	public String getGoodNight() {
+		return "Buenas noches";
+	}
 }

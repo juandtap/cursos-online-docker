@@ -40,8 +40,7 @@ RUN echo "Starting WildFly server" && \
       rm -rf $JBOSS_HOME/standalone/configuration/standalone_xml_history/ $JBOSS_HOME/standalone/log/* && \
       rm -f /tmp/*.jar
 
-COPY ../../../target/cursos-online-docker.war ${JBOSS_HOME}/standalone/deployments/
+COPY target/cursos-online-docker.war /opt/jboss/wildfly/standalone/deployments/
 EXPOSE 8080
-#EXPOSE 8009
 EXPOSE 9090
 CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-c", "standalone.xml", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
