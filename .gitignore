@@ -163,3 +163,10 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/git,java,maven,eclipse,windows
 src/main/webapp/META-INF/MANIFEST.MF
+.DS_Store
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/jarRepositories.xml
+.idea/vcs.xml
+.idea/misc.xml
+.idea/workspace.xml
